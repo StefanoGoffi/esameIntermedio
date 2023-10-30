@@ -1,0 +1,59 @@
+<div class="block">
+    <div class="container rounded-5 glass-black">
+        <div *ngIf="dataLoaded" class="d-flex flex-row">
+            <div class="d-flex flex-column col  ">
+                <img class="rounded-5 card-img-top" src="{{selectDrink.foto}}" alt="{{drink?.strDrink}} avatar" />
+                <h2 class="text-center">{{selectDrink.nome}}</h2>
+            </div>
+            <div class="d-flex flex-column ms-lg-3">
+                <div class="container-lg">
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="text-center">Ingredienti:</h3>
+                            <ul *ngIf="dataLoaded">
+                                <li *ngFor="let ingrediente of selectDrink.ingredienti; index as i;">
+                                    {{ingrediente}} - {{selectDrink.misure[i]}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h3 class="text-center">descrizione:</h3>
+                            <ul *ngIf="dataLoaded">
+                                <li>
+                                    Categoria: {{drink.strCategory}}
+                                </li>
+                                <li>
+                                    Servito in: {{drink.strGlass}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <h3 class="text-center">procedimento:</h3>
+                            <ul *ngIf="dataLoaded">
+                                <li>
+                                    💚🤍❤️ {{selectDrink.descrizioneIt}}
+                                </li>
+                                <li>
+                                    🤍💙❤️{{selectDrink.descrizioneEn}}
+                                </li>
+                                <li>
+                                    🖤❤️💛 {{selectDrink.descrizioneDe}}
+                                </li>
+                                <li>
+                                    💙🤍❤️{{selectDrink.descrizioneFr}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!dataLoaded" class="d-flex flex-row justify-content-center align-items-center">
+            <div class="spinner-border text-light" role="status">
+            </div>
+            <h2 class="text-center d-flex align-items-center justify-content-center">Caricamento in corso</h2>
+        </div>
+    </div>
+</div>
